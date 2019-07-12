@@ -31,20 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
         break
     }
     squares[currentIndex].classList.add('frog')
-    if (squares[currentIndex].classList.contains('frog') && !squares[currentIndex].classList.contains('safecross')) {
-      clearInterval(timerId)
-      alert('You Lost')
-      squares[currentIndex].classList.remove('frog')
+    stopGame()
+    if (squares[currentIndex].classList.contains('frog') && squares[currentIndex].classList.contains('leafs')) {
       currentIndex = 76
       squares[currentIndex].classList.add('frog')
     }
-    if (squares[currentIndex].classList.contains('frog') && squares[currentIndex].classList.contains('leaf')) {
-      currentIndex = 76
-      squares[currentIndex].classList.add('frog')
+    if (squares[1].classList.contains('frog') && squares[3].classList.contains('frog') && squares[5].classList.contains('frog') && squares[7].classList.contains('frog')) {
+      alert('You won')
     }
   }
 
   function moveRightWoods(rightWood) {
+    stopGame()
     switch (true) {
       case rightWood.classList.contains('wm-one'):
         rightWood.classList.remove('safecross')
@@ -72,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function moveLeftWoods(leftWood) {
+    stopGame()
     switch (true) {
       case leftWood.classList.contains('wm-one'):
         leftWood.classList.remove('wm-one')
@@ -100,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function moveRightFrogs(rightFrog) {
+    stopGame()
     switch (true) {
       case rightFrog.classList.contains('fm-one'):
         rightFrog.classList.remove('safecross')
@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function moveLeftFrogs(leftFrog) {
+    stopGame()
     switch (true) {
       case leftFrog.classList.contains('fm-one'):
         leftFrog.classList.add('safecross')
@@ -137,17 +138,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function stopGame(){
+    if (squares[currentIndex].classList.contains('frog') && !squares[currentIndex].classList.contains('safecross')) {
+      clearInterval(timerId)
+      alert('You Lost')
+      squares[currentIndex].classList.remove('frog')
+      currentIndex = 76
+      squares[currentIndex].classList.add('frog')
+    }
+  }
+
   // --- Interval
   const timerId = setInterval(() => {
     rightFrogs.forEach(rightFrog => moveRightFrogs(rightFrog))
     leftFrogs.forEach(leftFrog => moveLeftFrogs(leftFrog))
     leftWoods.forEach(leftWood => moveLeftWoods(leftWood))
     rightWoods.forEach(rightWood => moveRightWoods(rightWood))
-
-  }, 1200)
+  }, 950)
 
   setTimeout(() => {
     clearInterval(timerId)
+    alert('Game Over!')
   }, 30000)
 
 })
