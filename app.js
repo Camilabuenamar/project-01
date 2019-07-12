@@ -5,12 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const leftFrogs = document.querySelectorAll('.left-frogs')
   const rightWoods = document.querySelectorAll('.right-woods')
   const leftWoods = document.querySelectorAll('.left-woods')
-  const leafs = document.querySelectorAll('.leafs')
 
   let currentIndex = 76
   const width = 9
-
-
 
   squares[currentIndex].classList.add('frog')
 
@@ -38,12 +35,12 @@ document.addEventListener('keyup', moveFrog)
 
   // --- Interval
   const timerId = setInterval(() => {
-    rightFrogs.classList.toggle('dissapear')
-    leftFrogs.classList.toggle('dissapear')
-  }, 3000)
+    rightFrogs.forEach(rightFrog => rightFrog.classList.toggle('safecross'))
+    leftFrogs.forEach(leftFrog => leftFrog.classList.toggle('safecross'))
+  }, 1000)
 
   setTimeout(() => {
     clearInterval(timerId)
-  }, 30000);
+  }, 30000)
 
 })

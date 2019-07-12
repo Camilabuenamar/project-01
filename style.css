@@ -38,7 +38,7 @@ header {
 
 .left-frogs {
   /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: yellow;
+  background-color: orange;
   /* background-size: contain;
   background-repeat: no-repeat;
   background-position: center; */
@@ -46,7 +46,7 @@ header {
 
 .right-frogs {
   /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: orange;
+  background-color: yellow;
   /* background-size: contain;
   background-repeat: no-repeat;
   background-position: center; */
@@ -54,7 +54,7 @@ header {
 
 .left-woods {
   /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: red;
+  background-color: hotpink;
   /* background-size: contain;
   background-repeat: no-repeat;
   background-position: center; */
@@ -62,7 +62,7 @@ header {
 
 .right-woods {
   /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: hotpink;
+  background-color: red;
   /* background-size: contain;
   background-repeat: no-repeat;
   background-position: center; */
@@ -70,6 +70,13 @@ header {
 .leafs {
   /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
   background-color: purple;
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+.safecross {
+  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
+  background-color: gray;
   /* background-size: contain;
   background-repeat: no-repeat;
   background-position: center; */
