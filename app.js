@@ -18,19 +18,30 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[currentIndex].classList.remove('frog')
     switch(e.keyCode) {
       case 37:
-        if(currentIndex % width !== 0 && squares[currentIndex - 1].classList.contains('safecross')) currentIndex -= 1
+        if(currentIndex % width !== 0) currentIndex -= 1
         break
       case 38:
-        if(currentIndex - width >= 0 && squares[currentIndex - width].classList.contains('safecross')) currentIndex -= width
+        if(currentIndex - width >= 0) currentIndex -= width
         break
       case 39:
-        if(currentIndex % width < width - 1 && squares[currentIndex + 1].classList.contains('safecross')) currentIndex += 1
+        if(currentIndex % width < width - 1) currentIndex += 1
         break
       case 40:
-        if(currentIndex + width < width * width && squares[currentIndex - width].classList.contains('safecross')) currentIndex += width
+        if (currentIndex + width < width * width) currentIndex += width
         break
     }
     squares[currentIndex].classList.add('frog')
+    if (squares[currentIndex].classList.contains('frog') && !squares[currentIndex].classList.contains('safecross')) {
+      clearInterval(timerId)
+      alert('You Lost')
+      squares[currentIndex].classList.remove('frog')
+      currentIndex = 76
+      squares[currentIndex].classList.add('frog')
+    }
+    if (squares[currentIndex].classList.contains('frog') && squares[currentIndex].classList.contains('leaf')) {
+      currentIndex = 76
+      squares[currentIndex].classList.add('frog')
+    }
   }
 
 
@@ -88,6 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
   }
+
+
 
   // --- Interval
   const timerId = setInterval(() => {
