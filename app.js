@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
   function moveRightWoods(rightWood) {
     switch (true) {
       case rightWood.classList.contains('wm-one'):
@@ -100,12 +99,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+  function moveRightFrogs(rightFrog) {
+    switch (true) {
+      case rightFrog.classList.contains('fm-one'):
+        rightFrog.classList.remove('safecross')
+        rightFrog.classList.remove('fm-one')
+        rightFrog.classList.add('fm-three')
+        break
+      case rightFrog.classList.contains('fm-two'):
+        rightFrog.classList.remove('fm-two')
+        rightFrog.classList.add('fm-one')
+        break
+      case rightFrog.classList.contains('fm-three'):
+        rightFrog.classList.add('safecross')
+        rightFrog.classList.remove('fm-three')
+        rightFrog.classList.add('fm-two')
+        break
+    }
+  }
 
+  function moveLeftFrogs(leftFrog) {
+    switch (true) {
+      case leftFrog.classList.contains('fm-one'):
+        leftFrog.classList.add('safecross')
+        leftFrog.classList.remove('fm-one')
+        leftFrog.classList.add('fm-two')
+        break
+      case leftFrog.classList.contains('fm-two'):
+        leftFrog.classList.remove('fm-two')
+        leftFrog.classList.add('fm-three')
+        break
+      case leftFrog.classList.contains('fm-three'):
+        leftFrog.classList.remove('safecross')
+        leftFrog.classList.remove('fm-three')
+        leftFrog.classList.add('fm-one')
+        break
+    }
+  }
 
   // --- Interval
   const timerId = setInterval(() => {
-    rightFrogs.forEach(rightFrog => rightFrog.classList.toggle('safecross'))
-    leftFrogs.forEach(leftFrog => leftFrog.classList.toggle('safecross'))
+    rightFrogs.forEach(rightFrog => moveRightFrogs(rightFrog))
+    leftFrogs.forEach(leftFrog => moveLeftFrogs(leftFrog))
     leftWoods.forEach(leftWood => moveLeftWoods(leftWood))
     rightWoods.forEach(rightWood => moveRightWoods(rightWood))
 
