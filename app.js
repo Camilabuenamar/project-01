@@ -12,27 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   squares[currentIndex].classList.add('frog')
 
-document.addEventListener('keyup', moveFrog)
+  document.addEventListener('keyup', moveFrog)
 
   function moveFrog(e) {
     squares[currentIndex].classList.remove('frog')
     switch(e.keyCode) {
       case 37:
-        if(currentIndex % width !== 0) currentIndex -= 1
+        if(currentIndex % width !== 0 && squares[currentIndex - 1].classList.contains('safecross')) currentIndex -= 1
         break
       case 38:
-        if(currentIndex - width >= 0) currentIndex -= width
+        if(currentIndex - width >= 0 && squares[currentIndex - width].classList.contains('safecross')) currentIndex -= width
         break
       case 39:
-        if(currentIndex % width < width - 1) currentIndex += 1
+        if(currentIndex % width < width - 1 && squares[currentIndex + 1].classList.contains('safecross')) currentIndex += 1
         break
       case 40:
-        if(currentIndex + width < width * width) currentIndex += width
+        if(currentIndex + width < width * width && squares[currentIndex - width].classList.contains('safecross')) currentIndex += width
         break
     }
-
     squares[currentIndex].classList.add('frog')
   }
+
 
   function moveRightWoods(rightWood) {
     switch (true) {
@@ -62,30 +62,30 @@ document.addEventListener('keyup', moveFrog)
   }
 
   function moveLeftWoods(leftWood) {
-      switch (true) {
-        case leftWood.classList.contains('wm-one'):
-          leftWood.classList.remove('wm-one')
-          leftWood.classList.add('wm-two')
-          break
-        case leftWood.classList.contains('wm-two'):
-          leftWood.classList.remove('wm-two')
-          leftWood.classList.add('wm-three')
-          break
-        case leftWood.classList.contains('wm-three'):
-          leftWood.classList.remove('safecross')
-          leftWood.classList.remove('wm-three')
-          leftWood.classList.add('wm-four')
-          break
-        case leftWood.classList.contains('wm-four'):
-          leftWood.classList.remove('wm-four')
-          leftWood.classList.add('wm-five')
-          break
-        case leftWood.classList.contains('wm-five'):
-          leftWood.classList.add('safecross')
-          leftWood.classList.remove('wm-five')
-          leftWood.classList.add('wm-one')
-          break
-      }
+    switch (true) {
+      case leftWood.classList.contains('wm-one'):
+        leftWood.classList.remove('wm-one')
+        leftWood.classList.add('wm-two')
+        break
+      case leftWood.classList.contains('wm-two'):
+        leftWood.classList.remove('wm-two')
+        leftWood.classList.add('wm-three')
+        break
+      case leftWood.classList.contains('wm-three'):
+        leftWood.classList.remove('safecross')
+        leftWood.classList.remove('wm-three')
+        leftWood.classList.add('wm-four')
+        break
+      case leftWood.classList.contains('wm-four'):
+        leftWood.classList.remove('wm-four')
+        leftWood.classList.add('wm-five')
+        break
+      case leftWood.classList.contains('wm-five'):
+        leftWood.classList.add('safecross')
+        leftWood.classList.remove('wm-five')
+        leftWood.classList.add('wm-one')
+        break
+    }
 
   }
 
@@ -96,7 +96,7 @@ document.addEventListener('keyup', moveFrog)
     leftWoods.forEach(leftWood => moveLeftWoods(leftWood))
     rightWoods.forEach(rightWood => moveRightWoods(rightWood))
 
-  }, 1000)
+  }, 1200)
 
   setTimeout(() => {
     clearInterval(timerId)
