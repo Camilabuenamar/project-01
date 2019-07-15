@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-size: 50px;
 }
 
 body {
@@ -69,15 +70,26 @@ header {
 }
 .safecross {
   /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: gray;
+  background-color: #ADFF2F;
   /* background-size: contain;
   background-repeat: no-repeat;
   background-position: center; */
 }
 
+.wm-one {
+  background-color: #654321;
+}
+
+.wm-two {
+  background-color: #654321;
+}
+
+.wm-three {
+  background-color: #654321;
+}
+
 .leafs {
   /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: purple;
   /* background-size: contain;
   background-repeat: no-repeat;
   background-position: center; */

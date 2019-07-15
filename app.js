@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const leftFrogs = document.querySelectorAll('.left-frogs')
   const rightWoods = document.querySelectorAll('.right-woods')
   const leftWoods = document.querySelectorAll('.left-woods')
-
-
+  let frog = document.querySelectorAll('.frog')
   let currentIndex = 76
   const width = 9
 
@@ -138,9 +137,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function frogsColor() {
+    if (!!squares[1].classList.contains('frog') + !!squares[3].classList.contains('frog') + !!squares[5].classList.contains('frog') + !!squares[7].classList.contains('frog') === 1) {
+      document.querySelectorAll('.frog').style.backgroundColor = '#000000'
+    } else if (!!squares[1].classList.contains('frog') + !!squares[3].classList.contains('frog') + !!squares[5].classList.contains('frog') + !!squares[7].classList.contains('frog') === 2) {
+      document.querySelectorAll('.frog').style.backgroundColor = '#00FF00'
+    } else if (!!squares[1].classList.contains('frog') + !!squares[3].classList.contains('frog') + !!squares[5].classList.contains('frog') + !!squares[7].classList.contains('frog') === 3) {
+      document.querySelectorAll('.frog').style.backgroundColor = '#2E8B57'
+    }
+  }
+
   function stopGame(){
     if (squares[currentIndex].classList.contains('frog') && !squares[currentIndex].classList.contains('safecross')) {
-      clearInterval(timerId)
+      clearInterval(frogsTimerId)
+      clearInterval(woodsTimerId)
       alert('You Lost')
       squares[currentIndex].classList.remove('frog')
       currentIndex = 76
@@ -149,15 +159,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Interval
-  const timerId = setInterval(() => {
+  const frogsTimerId = setInterval(() => {
     rightFrogs.forEach(rightFrog => moveRightFrogs(rightFrog))
     leftFrogs.forEach(leftFrog => moveLeftFrogs(leftFrog))
+  }, 1000)
+
+  const woodsTimerId = setInterval(() => {
     leftWoods.forEach(leftWood => moveLeftWoods(leftWood))
     rightWoods.forEach(rightWood => moveRightWoods(rightWood))
-  }, 950)
+    if (currentIndex >= 27 && currentIndex < 35) {
+      squares[currentIndex].classList.remove('frog')
+      currentIndex = currentIndex +1
+      squares[currentIndex].classList.add('frog')
+    }
+    if (currentIndex >= 18 && currentIndex < 26) {
+      squares[currentIndex].classList.remove('frog')
+      currentIndex = currentIndex -1
+      squares[currentIndex].classList.add('frog')
+    }
+    frogsColor()
+  }, 900)
+
 
   setTimeout(() => {
-    clearInterval(timerId)
+    clearInterval(frogsTimerId)
+    clearInterval(woodsTimerId)
     alert('Game Over!')
   }, 30000)
 
