@@ -38,23 +38,22 @@ header {
 
 
 .left-frogs {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: orange;
-  /* background-size: contain;
+  background-image: url("hedgehog.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
 
 .right-frogs {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: yellow;
-  /* background-size: contain;
+  background-image: url("hedgehog.png");
+  transform:scaleX(-1);
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
 
 .left-woods {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
+  /* background-image: url(hedgehog); */
   background-color: hotpink;
   /* background-size: contain;
   background-repeat: no-repeat;
@@ -69,11 +68,10 @@ header {
   background-position: center; */
 }
 .safecross {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: #ADFF2F;
-  /* background-size: contain;
+  background-image: url("grid.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
 
 .wm-one {

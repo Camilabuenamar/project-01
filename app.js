@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const frogsTimerId = setInterval(() => {
     rightFrogs.forEach(rightFrog => moveRightFrogs(rightFrog))
     leftFrogs.forEach(leftFrog => moveLeftFrogs(leftFrog))
-  }, 1000)
+  }, 900)
 
   const woodsTimerId = setInterval(() => {
     leftWoods.forEach(leftWood => moveLeftWoods(leftWood))
