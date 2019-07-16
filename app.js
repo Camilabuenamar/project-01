@@ -6,17 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const rightWoods = document.querySelectorAll('.right-woods')
   const leftWoods = document.querySelectorAll('.left-woods')
   const timeLeft = document.querySelector('#time')
-  let scout = document.querySelectorAll('.scout')
+
+  let typeOfGirl = 0
 
   let currentIndex = 76
   const width = 9
   timeLeft.textContent = 120
   squares[currentIndex].classList.add('scout')
+  squares[currentIndex].setAttribute('data-type', typeOfGirl)
 
   document.addEventListener('keyup', moveScout)
 
   function moveScout(e) {
     squares[currentIndex].classList.remove('scout')
+    squares[currentIndex].removeAttribute('data-type')
     switch(e.keyCode) {
       case 37:
         if(currentIndex % width !== 0) currentIndex -= 1
@@ -32,10 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
         break
     }
     squares[currentIndex].classList.add('scout')
+    squares[currentIndex].setAttribute('data-type', typeOfGirl)
     stopGame()
     if (squares[currentIndex].classList.contains('scout') && squares[currentIndex].classList.contains('tents')) {
       currentIndex = 76
+      typeOfGirl++
       squares[currentIndex].classList.add('scout')
+      squares[currentIndex].setAttribute('data-type', typeOfGirl)
     }
     if (squares[1].classList.contains('scout') && squares[3].classList.contains('scout') && squares[5].classList.contains('scout') && squares[7].classList.contains('scout')) {
       alert('You won! Want to try again?')
@@ -149,38 +155,35 @@ document.addEventListener('DOMContentLoaded', () => {
     rightWoods.forEach(rightWood => moveRightWoods(rightWood))
     if (currentIndex >= 27 && currentIndex < 35) {
       squares[currentIndex].classList.remove('scout')
+      squares[currentIndex].removeAttribute('data-type')
       currentIndex = currentIndex +1
       squares[currentIndex].classList.add('scout')
+      squares[currentIndex].setAttribute('data-type', typeOfGirl)
     }
     if (currentIndex > 18 && currentIndex <= 26) {
       squares[currentIndex].classList.remove('scout')
+      squares[currentIndex].removeAttribute('data-type')
       currentIndex = currentIndex -1
       squares[currentIndex].classList.add('scout')
+      squares[currentIndex].setAttribute('data-type', typeOfGirl)
     }
-    scoutID()
   }
 
-  function scoutID() {
-    if (!!squares[1].classList.contains('scout') + !!squares[3].classList.contains('scout') + !!squares[5].classList.contains('scout') + !!squares[7].classList.contains('scout') === 1) {
-      document.querySelectorAll('.scout').style.backgroundColor = '#000000'
-    } else if (!!squares[1].classList.contains('scout') + !!squares[3].classList.contains('scout') + !!squares[5].classList.contains('scout') + !!squares[7].classList.contains('scout') === 2) {
-      document.querySelectorAll('.scout').style.backgroundColor = '#00FF00'
-    } else if (!!squares[1].classList.contains('scout') + !!squares[3].classList.contains('scout') + !!squares[5].classList.contains('scout') + !!squares[7].classList.contains('scout') === 3) {
-      document.querySelectorAll('.scout').style.backgroundColor = '#2E8B57'
-    }
-  }
 
   function stopGame(){
     if (squares[currentIndex].classList.contains('scout') && !squares[currentIndex].classList.contains('safecross')) {
       clearInterval(timer)
       alert('you lost, try again!')
       squares[currentIndex].classList.remove('scout')
+      squares[currentIndex].removeAttribute('data-type')
+      squares[currentIndex].removeAttribute('data-type')
       squares[1].classList.remove('scout')
       squares[3].classList.remove('scout')
       squares[5].classList.remove('scout')
       squares[7].classList.remove('scout')
       currentIndex = 76
       squares[currentIndex].classList.add('scout')
+      squares[currentIndex].setAttribute('data-type', typeOfGirl)
       timeLeft.textContent = 120
       currentTime = timeLeft.textContent
       timer = setInterval(countdown, 1000)
@@ -203,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(currentTime === 0) {
       clearInterval(timer)
-      alert('Time\'s up! Try again!')
+      stopGame()
     }
   }
 

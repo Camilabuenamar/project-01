@@ -50,14 +50,12 @@ h3 {
 }
 
 .grid {
-  width: 100%;
-  height: 100%;
+  width: 558px;
+  height: 558px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 0px;
-  padding: 10px;
   background-color: #a9f22e;
 }
 
@@ -108,6 +106,27 @@ h3 {
   background-size: contain;
 }
 
+.safecross.scout[data-type="1"] {
+  background-image: url("scout-two.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.safecross.scout[data-type="2"] {
+  background-image: url("scout-three.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.safecross.scout[data-type="3"] {
+  background-image: url("scout-four.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .wm-one {
   background-image: url("left-wood.png") !important;
   background-position: center;
@@ -136,8 +155,7 @@ h3 {
   background-size: contain;
 }
 
-
-.scout.wm-one::before, .scout.wm-two::before, .scout.wm-three::before, .scout.tents::before {
+.scout[data-type="0"].wm-one::before, .scout[data-type="0"].wm-two::before, .scout[data-type="0"].wm-three::before, .scout[data-type="0"].tents::before {
   content: '';
   position: absolute;
   top: 0;
@@ -145,6 +163,43 @@ h3 {
   left: 0;
   right: 0;
   background-image: url("scout-one.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.scout[data-type="1"].wm-one::before, .scout[data-type="1"].wm-two::before, .scout[data-type="1"].wm-three::before, .scout[data-type="1"].tents::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("scout-two.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.scout[data-type="2"].wm-one::before, .scout[data-type="2"].wm-two::before, .scout[data-type="2"].wm-three::before, .scout[data-type="2"].tents::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("scout-three.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.scout[data-type="3"].wm-one::before, .scout[data-type="3"].wm-two::before, .scout[data-type="3"].wm-three::before, .scout[data-type="3"].tents::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("scout-four.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
