@@ -18,7 +18,7 @@ header {
 h1 {
   display: flex;
   font-size: 70px;
-  color: darkgreen;
+  color: hotpink;
   justify-content: center;
   font-family: 'Amatic SC', cursive;
 }
@@ -56,7 +56,7 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: #a9f22e;
+  background-color: #ffc7d1;
 }
 
 .grid div {
@@ -67,15 +67,15 @@ h3 {
 
 
 .left-hedgehogs {
-  background-image: url("hedgehog.png");
+  background-image: url("stem-imgs/car-one.png");
+  transform:scaleX(-1);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .right-hedgehogs {
-  background-image: url("hedgehog.png");
-  transform:scaleX(-1);
+  background-image: url("stem-imgs/car-one.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -85,74 +85,104 @@ h3 {
   background-image: none;
 }
 
-.left-woods {
-  background-image: url("water.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.right-woods {
-  background-image: url("water.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+.right-woods, .right-hedgehogs, .left-woods, .left-hedgehogs {
+  background-color: #C5C5C6;
 }
 
 .safecross.scout {
-  background-image: url("scout-one.png");
+  background-image: url("stem-imgs/astronaut.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .safecross.scout[data-type="1"] {
-  background-image: url("scout-two.png");
+  background-image: url("stem-imgs/scientist.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .safecross.scout[data-type="2"] {
-  background-image: url("scout-three.png");
+  background-image: url("stem-imgs/engineer.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .safecross.scout[data-type="3"] {
-  background-image: url("scout-four.png");
+  background-image: url("stem-imgs/doctor.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.wm-one {
-  background-image: url("left-wood.png") !important;
+.wm-one.left-woods {
+  background-image: url("stem-imgs/bus-front.png") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.wm-two {
-  background-image: url("center-wood.png") !important;
+.wm-two.left-woods {
+  background-image: url("stem-imgs/bus-center.png") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.wm-three {
-  background-image: url("right-wood.png") !important;
+.wm-three.left-woods {
+  background-image: url("stem-imgs/bus-back.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.wm-one.right-woods {
+  background-image: url("stem-imgs/bus-back.png") !important;
+  transform:scaleX(-1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.wm-two.right-woods {
+  background-image: url("stem-imgs/bus-center.png") !important;
+  background-position: center;
+  transform:scaleX(-1);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.wm-three.right-woods {
+  background-image: url("stem-imgs/bus-front.png") !important;
+  transform:scaleX(-1);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .tents {
-  background-image: url("tent.png") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.tents[data-tent="0"]{
+  background-image: url("stem-imgs/rocket.png") !important;
+}
+
+.tents[data-tent="1"]{
+  background-image: url("stem-imgs/lab.png") !important;
+}
+
+
+.tents[data-tent="2"]{
+  background-image: url("stem-imgs/construction.png") !important;
+}
+
+.tents[data-tent="3"]{
+  background-image: url("stem-imgs/hospital.png") !important;
 }
 
 .scout[data-type="0"].wm-one::before, .scout[data-type="0"].wm-two::before, .scout[data-type="0"].wm-three::before, .scout[data-type="0"].tents::before {
@@ -162,12 +192,11 @@ h3 {
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url("scout-one.png");
+  background-image: url("stem-imgs/astronaut.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-
 .scout[data-type="1"].wm-one::before, .scout[data-type="1"].wm-two::before, .scout[data-type="1"].wm-three::before, .scout[data-type="1"].tents::before {
   content: '';
   position: absolute;
@@ -175,7 +204,7 @@ h3 {
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url("scout-two.png");
+  background-image: url("stem-imgs/scientist.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -187,7 +216,7 @@ h3 {
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url("scout-three.png");
+  background-image: url("stem-imgs/engineer.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -199,7 +228,7 @@ h3 {
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url("scout-four.png");
+  background-image: url("stem-imgs/doctor.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   timeLeft.textContent = 120
   squares[currentIndex].classList.add('scout')
   squares[currentIndex].setAttribute('data-type', typeOfGirl)
-
   document.addEventListener('keyup', moveScout)
 
   function moveScout(e) {
@@ -37,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[currentIndex].classList.add('scout')
     squares[currentIndex].setAttribute('data-type', typeOfGirl)
     stopGame()
-    if (squares[currentIndex].classList.contains('scout') && squares[currentIndex].classList.contains('tents')) {
+    if (squares[currentIndex].classList.contains('scout') && squares[currentIndex].classList.contains('tents') && +squares[currentIndex].getAttribute('data-tent') === typeOfGirl) {
       currentIndex = 76
       typeOfGirl++
       squares[currentIndex].classList.add('scout')
