@@ -1,20 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const squares = document.querySelectorAll('.grid div')
-  const rightFrogs = document.querySelectorAll('.right-frogs')
-  const leftFrogs = document.querySelectorAll('.left-frogs')
+  const rightHedgehogs = document.querySelectorAll('.right-hedgehogs')
+  const leftHedgehogs = document.querySelectorAll('.left-hedgehogs')
   const rightWoods = document.querySelectorAll('.right-woods')
   const leftWoods = document.querySelectorAll('.left-woods')
-  let frog = document.querySelectorAll('.frog')
+  const timeLeft = document.querySelector('#time')
+  let scout = document.querySelectorAll('.scout')
+
   let currentIndex = 76
   const width = 9
+  timeLeft.textContent = 120
+  squares[currentIndex].classList.add('scout')
 
-  squares[currentIndex].classList.add('frog')
+  document.addEventListener('keyup', moveScout)
 
-  document.addEventListener('keyup', moveFrog)
-
-  function moveFrog(e) {
-    squares[currentIndex].classList.remove('frog')
+  function moveScout(e) {
+    squares[currentIndex].classList.remove('scout')
     switch(e.keyCode) {
       case 37:
         if(currentIndex % width !== 0) currentIndex -= 1
@@ -29,14 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentIndex + width < width * width) currentIndex += width
         break
     }
-    squares[currentIndex].classList.add('frog')
+    squares[currentIndex].classList.add('scout')
     stopGame()
-    if (squares[currentIndex].classList.contains('frog') && squares[currentIndex].classList.contains('leafs')) {
+    if (squares[currentIndex].classList.contains('scout') && squares[currentIndex].classList.contains('tents')) {
       currentIndex = 76
-      squares[currentIndex].classList.add('frog')
+      squares[currentIndex].classList.add('scout')
     }
-    if (squares[1].classList.contains('frog') && squares[3].classList.contains('frog') && squares[5].classList.contains('frog') && squares[7].classList.contains('frog')) {
-      alert('You won')
+    if (squares[1].classList.contains('scout') && squares[3].classList.contains('scout') && squares[5].classList.contains('scout') && squares[7].classList.contains('scout')) {
+      alert('You won! Want to try again?')
     }
   }
 
@@ -97,94 +99,113 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  function moveRightFrogs(rightFrog) {
+  function moveHedgehogsInTime() {
+    rightHedgehogs.forEach(rightHedgehog => moverightHedgehogs(rightHedgehog))
+    leftHedgehogs.forEach(leftHedgehog => moveleftHedgehogs(leftHedgehog))
+  }
+
+  function moverightHedgehogs(rightHedgehog) {
     stopGame()
     switch (true) {
-      case rightFrog.classList.contains('fm-one'):
-        rightFrog.classList.remove('safecross')
-        rightFrog.classList.remove('fm-one')
-        rightFrog.classList.add('fm-three')
+      case rightHedgehog.classList.contains('fm-one'):
+        rightHedgehog.classList.remove('safecross')
+        rightHedgehog.classList.remove('fm-one')
+        rightHedgehog.classList.add('fm-three')
         break
-      case rightFrog.classList.contains('fm-two'):
-        rightFrog.classList.remove('fm-two')
-        rightFrog.classList.add('fm-one')
+      case rightHedgehog.classList.contains('fm-two'):
+        rightHedgehog.classList.remove('fm-two')
+        rightHedgehog.classList.add('fm-one')
         break
-      case rightFrog.classList.contains('fm-three'):
-        rightFrog.classList.add('safecross')
-        rightFrog.classList.remove('fm-three')
-        rightFrog.classList.add('fm-two')
+      case rightHedgehog.classList.contains('fm-three'):
+        rightHedgehog.classList.add('safecross')
+        rightHedgehog.classList.remove('fm-three')
+        rightHedgehog.classList.add('fm-two')
         break
     }
   }
 
-  function moveLeftFrogs(leftFrog) {
+  function moveleftHedgehogs(leftHedgehog) {
     stopGame()
     switch (true) {
-      case leftFrog.classList.contains('fm-one'):
-        leftFrog.classList.add('safecross')
-        leftFrog.classList.remove('fm-one')
-        leftFrog.classList.add('fm-two')
+      case leftHedgehog.classList.contains('fm-one'):
+        leftHedgehog.classList.add('safecross')
+        leftHedgehog.classList.remove('fm-one')
+        leftHedgehog.classList.add('fm-two')
         break
-      case leftFrog.classList.contains('fm-two'):
-        leftFrog.classList.remove('fm-two')
-        leftFrog.classList.add('fm-three')
+      case leftHedgehog.classList.contains('fm-two'):
+        leftHedgehog.classList.remove('fm-two')
+        leftHedgehog.classList.add('fm-three')
         break
-      case leftFrog.classList.contains('fm-three'):
-        leftFrog.classList.remove('safecross')
-        leftFrog.classList.remove('fm-three')
-        leftFrog.classList.add('fm-one')
+      case leftHedgehog.classList.contains('fm-three'):
+        leftHedgehog.classList.remove('safecross')
+        leftHedgehog.classList.remove('fm-three')
+        leftHedgehog.classList.add('fm-one')
         break
     }
   }
 
-  function frogsColor() {
-    if (!!squares[1].classList.contains('frog') + !!squares[3].classList.contains('frog') + !!squares[5].classList.contains('frog') + !!squares[7].classList.contains('frog') === 1) {
-      document.querySelectorAll('.frog').style.backgroundColor = '#000000'
-    } else if (!!squares[1].classList.contains('frog') + !!squares[3].classList.contains('frog') + !!squares[5].classList.contains('frog') + !!squares[7].classList.contains('frog') === 2) {
-      document.querySelectorAll('.frog').style.backgroundColor = '#00FF00'
-    } else if (!!squares[1].classList.contains('frog') + !!squares[3].classList.contains('frog') + !!squares[5].classList.contains('frog') + !!squares[7].classList.contains('frog') === 3) {
-      document.querySelectorAll('.frog').style.backgroundColor = '#2E8B57'
+  function moveWoodsInTime() {
+    leftWoods.forEach(leftWood => moveLeftWoods(leftWood))
+    rightWoods.forEach(rightWood => moveRightWoods(rightWood))
+    if (currentIndex >= 27 && currentIndex < 35) {
+      squares[currentIndex].classList.remove('scout')
+      currentIndex = currentIndex +1
+      squares[currentIndex].classList.add('scout')
+    }
+    if (currentIndex > 18 && currentIndex <= 26) {
+      squares[currentIndex].classList.remove('scout')
+      currentIndex = currentIndex -1
+      squares[currentIndex].classList.add('scout')
+    }
+    scoutID()
+  }
+
+  function scoutID() {
+    if (!!squares[1].classList.contains('scout') + !!squares[3].classList.contains('scout') + !!squares[5].classList.contains('scout') + !!squares[7].classList.contains('scout') === 1) {
+      document.querySelectorAll('.scout').style.backgroundColor = '#000000'
+    } else if (!!squares[1].classList.contains('scout') + !!squares[3].classList.contains('scout') + !!squares[5].classList.contains('scout') + !!squares[7].classList.contains('scout') === 2) {
+      document.querySelectorAll('.scout').style.backgroundColor = '#00FF00'
+    } else if (!!squares[1].classList.contains('scout') + !!squares[3].classList.contains('scout') + !!squares[5].classList.contains('scout') + !!squares[7].classList.contains('scout') === 3) {
+      document.querySelectorAll('.scout').style.backgroundColor = '#2E8B57'
     }
   }
 
   function stopGame(){
-    if (squares[currentIndex].classList.contains('frog') && !squares[currentIndex].classList.contains('safecross')) {
-      clearInterval(frogsTimerId)
-      clearInterval(woodsTimerId)
-      alert('You Lost')
-      squares[currentIndex].classList.remove('frog')
+    if (squares[currentIndex].classList.contains('scout') && !squares[currentIndex].classList.contains('safecross')) {
+      clearInterval(timer)
+      alert('you lost, try again!')
+      squares[currentIndex].classList.remove('scout')
+      squares[1].classList.remove('scout')
+      squares[3].classList.remove('scout')
+      squares[5].classList.remove('scout')
+      squares[7].classList.remove('scout')
       currentIndex = 76
-      squares[currentIndex].classList.add('frog')
+      squares[currentIndex].classList.add('scout')
+      timeLeft.textContent = 120
+      currentTime = timeLeft.textContent
+      timer = setInterval(countdown, 1000)
     }
   }
 
-  // --- Interval
-  const frogsTimerId = setInterval(() => {
-    rightFrogs.forEach(rightFrog => moveRightFrogs(rightFrog))
-    leftFrogs.forEach(leftFrog => moveLeftFrogs(leftFrog))
-  }, 900)
+  // --- Intervals
+  const hedgehogTimerId = setInterval(moveHedgehogsInTime, 750)
 
-  const woodsTimerId = setInterval(() => {
-    leftWoods.forEach(leftWood => moveLeftWoods(leftWood))
-    rightWoods.forEach(rightWood => moveRightWoods(rightWood))
-    if (currentIndex >= 27 && currentIndex < 35) {
-      squares[currentIndex].classList.remove('frog')
-      currentIndex = currentIndex +1
-      squares[currentIndex].classList.add('frog')
+  const woodsTimerId = setInterval(moveWoodsInTime, 750)
+
+
+  // --- Time remaining
+
+  let currentTime = timeLeft.textContent
+
+  function countdown() {
+    currentTime--
+    timeLeft.textContent = currentTime
+
+    if(currentTime === 0) {
+      clearInterval(timer)
+      alert('Time\'s up! Try again!')
     }
-    if (currentIndex >= 18 && currentIndex < 26) {
-      squares[currentIndex].classList.remove('frog')
-      currentIndex = currentIndex -1
-      squares[currentIndex].classList.add('frog')
-    }
-    frogsColor()
-  }, 900)
+  }
 
-
-  setTimeout(() => {
-    clearInterval(frogsTimerId)
-    clearInterval(woodsTimerId)
-    alert('Game Over!')
-  }, 30000)
-
+  let timer = setInterval(countdown, 1000)
 })

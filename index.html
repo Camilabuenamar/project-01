@@ -2,49 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Frogger</title>
+    <title>Scouts</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700&display=swap" rel="stylesheet">
     <script src="app.js" charset="utf-8"></script>
   </head>
   <body>
     <div class="game">
+    <h1>Scouts</h1>
+      <div class="header">
+        <h3> time left: <span id="time"></span> seconds</h3>
+      </div>
       <div class="grid">
         <div class="safecross"></div>
-        <div class="leafs safecross">🏕</div>
+        <div class="tents safecross"></div>
         <div class="safecross"></div>
-        <div class="leafs safecross">🏕</div>
+        <div class="tents safecross"></div>
         <div class="safecross"></div>
-        <div class="leafs safecross">🏕</div>
+        <div class="tents safecross"></div>
         <div class="safecross"></div>
-        <div class="leafs safecross">🏕</div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="safecross"></div>
-        <div class="left-woods safecross wm-one">lw</div>
-        <div class="left-woods safecross wm-two">lw</div>
-        <div class="left-woods safecross wm-three">lw</div>
-        <div class="left-woods wm-four">lw</div>
-        <div class="left-woods wm-five">lw</div>
-        <div class="left-woods safecross wm-one">lw</div>
-        <div class="left-woods safecross wm-two">lw</div>
-        <div class="left-woods safecross wm-three">lw</div>
-        <div class="left-woods wm-four">lw</div>
-        <div class="right-woods wm-five">rw</div>
-        <div class="right-woods safecross wm-one">rw</div>
-        <div class="right-woods safecross wm-two">rw</div>
-        <div class="right-woods safecross wm-three">rw</div>
-        <div class="right-woods wm-four">rw</div>
-        <div class="right-woods wm-five">rw</div>
-        <div class="right-woods safecross wm-one">rw</div>
-        <div class="right-woods safecross wm-two">rw</div>
-        <div class="right-woods safecross wm-three">rw</div>
+        <div class="tents safecross"></div>
         <div class="safecross"></div>
         <div class="safecross"></div>
         <div class="safecross"></div>
@@ -54,24 +31,52 @@
         <div class="safecross"></div>
         <div class="safecross"></div>
         <div class="safecross"></div>
-        <div class="left-frogs safecross fm-two"></div>
-        <div class="left-frogs safecross fm-three"></div>
-        <div class="left-frogs fm-one"></div>
-        <div class="left-frogs safecross fm-two"></div>
-        <div class="left-frogs safecross fm-three"></div>
-        <div class="left-frogs fm-one"></div>
-        <div class="left-frogs safecross fm-two"></div>
-        <div class="left-frogs safecross fm-three"></div>
-        <div class="left-frogs fm-one"></div>
-        <div class="right-frogs safecross fm-two"></div>
-        <div class="right-frogs safecross fm-three" ></div>
-        <div class="right-frogs fm-one"></div>
-        <div class="right-frogs safecross fm-two"></div>
-        <div class="right-frogs safecross fm-three" ></div>
-        <div class="right-frogs fm-one"></div>
-        <div class="right-frogs safecross fm-two"></div>
-        <div class="right-frogs safecross fm-three"></div>
-        <div class="right-frogs fm-one"></div>
+        <div class="safecross"></div>
+        <div class="left-woods safecross wm-one"></div>
+        <div class="left-woods safecross wm-two"></div>
+        <div class="left-woods safecross wm-three"></div>
+        <div class="left-woods wm-four"></div>
+        <div class="left-woods wm-five"></div>
+        <div class="left-woods safecross wm-one"></div>
+        <div class="left-woods safecross wm-two"></div>
+        <div class="left-woods safecross wm-three"></div>
+        <div class="left-woods wm-four"></div>
+        <div class="right-woods wm-five"></div>
+        <div class="right-woods safecross wm-one"></div>
+        <div class="right-woods safecross wm-two"></div>
+        <div class="right-woods safecross wm-three"></div>
+        <div class="right-woods wm-four"></div>
+        <div class="right-woods wm-five"></div>
+        <div class="right-woods safecross wm-one"></div>
+        <div class="right-woods safecross wm-two"></div>
+        <div class="right-woods safecross wm-three"></div>
+        <div class="safecross"></div>
+        <div class="safecross"></div>
+        <div class="safecross"></div>
+        <div class="safecross"></div>
+        <div class="safecross"></div>
+        <div class="safecross"></div>
+        <div class="safecross"></div>
+        <div class="safecross"></div>
+        <div class="safecross"></div>
+        <div class="left-hedgehogs safecross fm-two"></div>
+        <div class="left-hedgehogs safecross fm-three"></div>
+        <div class="left-hedgehogs fm-one"></div>
+        <div class="left-hedgehogs safecross fm-two"></div>
+        <div class="left-hedgehogs safecross fm-three"></div>
+        <div class="left-hedgehogs fm-one"></div>
+        <div class="left-hedgehogs safecross fm-two"></div>
+        <div class="left-hedgehogs safecross fm-three"></div>
+        <div class="left-hedgehogs fm-one"></div>
+        <div class="right-hedgehogs safecross fm-two"></div>
+        <div class="right-hedgehogs safecross fm-three" ></div>
+        <div class="right-hedgehogs fm-one"></div>
+        <div class="right-hedgehogs safecross fm-two"></div>
+        <div class="right-hedgehogs safecross fm-three" ></div>
+        <div class="right-hedgehogs fm-one"></div>
+        <div class="right-hedgehogs safecross fm-two"></div>
+        <div class="right-hedgehogs safecross fm-three"></div>
+        <div class="right-hedgehogs fm-one"></div>
         <div class="safecross"></div>
         <div class="safecross"></div>
         <div class="safecross"></div>

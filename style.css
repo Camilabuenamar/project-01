@@ -1,11 +1,12 @@
 * {
   box-sizing: border-box;
-  font-size: 50px;
+  margin: 0;
 }
 
 body {
   margin: 0;
   font-size: 24px;
+  background-color: #fafafa;
 }
 
 header {
@@ -14,12 +15,38 @@ header {
   padding: 10px 0;
 }
 
+h1 {
+  display: flex;
+  font-size: 70px;
+  color: darkgreen;
+  justify-content: center;
+  font-family: 'Amatic SC', cursive;
+}
+
+h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  font-size: 30px;
+  color: #454545;
+  justify-content: right;
+  font-family: 'Amatic SC', cursive;
+  padding-left: 350px;
+}
+
+#time {
+  color: black;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 .game {
   width: 600px;
   height: 600px;
   margin: auto;
-  padding: 50px;
-  border: 1px solid gray;
+  padding-bottom: 2px;
+  border: 1px solid #fafafa;
+  padding: 10px;
 }
 
 .grid {
@@ -27,24 +54,28 @@ header {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid gray;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 10px;
+  background-color: #a9f22e;
 }
 
 .grid div {
   width: calc(100% / 9);
   height: calc(100% / 9);
-  border: 1px solid gray;
+  position: relative;
 }
 
 
-.left-frogs {
+.left-hedgehogs {
   background-image: url("hedgehog.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.right-frogs {
+.right-hedgehogs {
   background-image: url("hedgehog.png");
   transform:scaleX(-1);
   background-position: center;
@@ -52,51 +83,69 @@ header {
   background-size: contain;
 }
 
+.safecross.left-hedgehogs, .safecross.right-hedgehogs {
+  background-image: none;
+}
+
 .left-woods {
-  /* background-image: url(hedgehog); */
-  background-color: hotpink;
-  /* background-size: contain;
+  background-image: url("water.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
 
 .right-woods {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: red;
-  /* background-size: contain;
+  background-image: url("water.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
-.safecross {
-  background-image: url("grid.png");
+
+.safecross.scout {
+  background-image: url("scout-one.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .wm-one {
-  background-color: #654321;
+  background-image: url("left-wood.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .wm-two {
-  background-color: #654321;
+  background-image: url("center-wood.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .wm-three {
-  background-color: #654321;
+  background-image: url("right-wood.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.leafs {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  /* background-size: contain;
+.tents {
+  background-image: url("tent.png") !important;
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
 
-.frog {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: green;
-  /* background-size: contain;
+
+.scout.wm-one::before, .scout.wm-two::before, .scout.wm-three::before, .scout.tents::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("scout-one.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
