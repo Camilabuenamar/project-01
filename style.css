@@ -18,7 +18,7 @@ header {
 h1 {
   display: flex;
   font-size: 70px;
-  color: hotpink;
+  color: deeppink;
   justify-content: center;
   font-family: 'Amatic SC', cursive;
 }
@@ -40,6 +40,35 @@ h3 {
   margin-left: 10px;
 }
 
+.popUp {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  z-index: 300;
+  background-color: rgba(250, 250, 250, 0.9);
+  top: 45%;
+  left: 40%;
+  font-size: 45px;
+  color: deeppink;
+  justify-content: center;
+  font-family: 'Amatic SC', cursive;
+  padding: 10px;
+}
+
+#button{
+  display: flex;
+  flex-direction: row;
+  color: #454545;
+  justify-content: flex-end;
+  font-family: 'Amatic SC', cursive;
+  padding: 10px;
+}
+
+
+
+
 .game {
   width: 600px;
   height: 600px;
@@ -56,89 +85,102 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: #ffc7d1;
+  background-color: #ffd1e3;
 }
 
 .grid div {
   width: calc(100% / 9);
   height: calc(100% / 9);
   position: relative;
+  border-width: 0;
 }
 
 
-.left-hedgehogs {
-  background-image: url("stem-imgs/car-one.png");
+.left-cars {
+  background-image: url("stem-imgs/car-two.png");
   transform:scaleX(-1);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.right-hedgehogs {
-  background-image: url("stem-imgs/car-one.png");
+.right-cars {
+  background-image: url("stem-imgs/car-two.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.safecross.left-hedgehogs, .safecross.right-hedgehogs {
+.safecross.left-cars, .safecross.right-cars {
   background-image: none;
 }
 
-.right-woods, .right-hedgehogs, .left-woods, .left-hedgehogs {
-  background-color: #C5C5C6;
-}
-
-.safecross.scout {
+.safecross.woman {
   background-image: url("stem-imgs/astronaut.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.safecross.scout[data-type="1"] {
+.safecross.woman[data-type="1"] {
   background-image: url("stem-imgs/scientist.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.safecross.scout[data-type="2"] {
+.safecross.woman[data-type="2"] {
   background-image: url("stem-imgs/engineer.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.safecross.scout[data-type="3"] {
+.safecross.woman[data-type="3"] {
   background-image: url("stem-imgs/doctor.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.wm-one.left-woods {
+.bm-one.left-buses {
   background-image: url("stem-imgs/bus-front.png") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.wm-two.left-woods {
+.bm-two.left-buses {
   background-image: url("stem-imgs/bus-center.png") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.wm-three.left-woods {
+.bm-three.left-buses {
   background-image: url("stem-imgs/bus-back.png") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.wm-one.right-woods {
+.bm-four.left-buses {
+  background-image: url("stem-imgs/car-one.png") !important;
+  transform:scaleX(-1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-five.left-buses {
+  background-image: url("stem-imgs/car-three.png") !important;
+  transform:scaleX(-1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-one.right-buses {
   background-image: url("stem-imgs/bus-back.png") !important;
   transform:scaleX(-1);
   background-position: center;
@@ -146,7 +188,7 @@ h3 {
   background-size: contain;
 }
 
-.wm-two.right-woods {
+.bm-two.right-buses {
   background-image: url("stem-imgs/bus-center.png") !important;
   background-position: center;
   transform:scaleX(-1);
@@ -154,7 +196,7 @@ h3 {
   background-size: contain;
 }
 
-.wm-three.right-woods {
+.bm-three.right-buses {
   background-image: url("stem-imgs/bus-front.png") !important;
   transform:scaleX(-1);
   background-position: center;
@@ -162,30 +204,44 @@ h3 {
   background-size: contain;
 }
 
-.tents {
+.bm-four.right-buses {
+  background-image: url("stem-imgs/car-one.png") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.tents[data-tent="0"]{
+.bm-five.right-buses {
+  background-image: url("stem-imgs/car-three.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.workPlace {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.workPlace[data-workPlace="0"]{
   background-image: url("stem-imgs/rocket.png") !important;
 }
 
-.tents[data-tent="1"]{
+.workPlace[data-workPlace="1"]{
   background-image: url("stem-imgs/lab.png") !important;
 }
 
 
-.tents[data-tent="2"]{
+.workPlace[data-workPlace="2"]{
   background-image: url("stem-imgs/construction.png") !important;
 }
 
-.tents[data-tent="3"]{
+.workPlace[data-workPlace="3"]{
   background-image: url("stem-imgs/hospital.png") !important;
 }
 
-.scout[data-type="0"].wm-one::before, .scout[data-type="0"].wm-two::before, .scout[data-type="0"].wm-three::before, .scout[data-type="0"].tents::before {
+.woman[data-type="0"].bm-one::before, .woman[data-type="0"].bm-two::before, .woman[data-type="0"].bm-three::before, .woman[data-type="0"].workPlace::before {
   content: '';
   position: absolute;
   top: 0;
@@ -197,7 +253,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.scout[data-type="1"].wm-one::before, .scout[data-type="1"].wm-two::before, .scout[data-type="1"].wm-three::before, .scout[data-type="1"].tents::before {
+.woman[data-type="1"].bm-one::before, .woman[data-type="1"].bm-two::before, .woman[data-type="1"].bm-three::before, .woman[data-type="1"].workPlace::before {
   content: '';
   position: absolute;
   top: 0;
@@ -209,7 +265,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.scout[data-type="2"].wm-one::before, .scout[data-type="2"].wm-two::before, .scout[data-type="2"].wm-three::before, .scout[data-type="2"].tents::before {
+.woman[data-type="2"].bm-one::before, .woman[data-type="2"].bm-two::before, .woman[data-type="2"].bm-three::before, .woman[data-type="2"].workPlace::before {
   content: '';
   position: absolute;
   top: 0;
@@ -221,7 +277,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.scout[data-type="3"].wm-one::before, .scout[data-type="3"].wm-two::before, .scout[data-type="3"].wm-three::before, .scout[data-type="3"].tents::before {
+.woman[data-type="3"].bm-one::before, .woman[data-type="3"].bm-two::before, .woman[data-type="3"].bm-three::before, .woman[data-type="3"].workPlace::before {
   content: '';
   position: absolute;
   top: 0;

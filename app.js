@@ -1,24 +1,31 @@
+const audio = document.createElement('audio')
+audio.src='Girls-Beyonce.mp3'
+audio.loop = true
+audio.autoplay = true
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const squares = document.querySelectorAll('.grid div')
-  const rightHedgehogs = document.querySelectorAll('.right-hedgehogs')
-  const leftHedgehogs = document.querySelectorAll('.left-hedgehogs')
-  const rightWoods = document.querySelectorAll('.right-woods')
-  const leftWoods = document.querySelectorAll('.left-woods')
+  const rightCars = document.querySelectorAll('.right-cars')
+  const leftCars = document.querySelectorAll('.left-cars')
+  const rightBuses = document.querySelectorAll('.right-buses')
+  const leftBuses = document.querySelectorAll('.left-buses')
   const timeLeft = document.querySelector('#time')
+  const popUp = document.querySelector('.popUp')
 
-  let typeOfGirl = 0
+  let typeOfJob = 0
 
   let currentIndex = 76
   const width = 9
   timeLeft.textContent = 120
-  squares[currentIndex].classList.add('scout')
-  squares[currentIndex].setAttribute('data-type', typeOfGirl)
-  document.addEventListener('keyup', moveScout)
+  squares[currentIndex].classList.add('woman')
+  squares[currentIndex].setAttribute('data-type', typeOfJob)
+  document.addEventListener('keyup', moveWoman)
 
-  function moveScout(e) {
-    squares[currentIndex].classList.remove('scout')
+  function moveWoman(e) {
+    squares[currentIndex].classList.remove('woman')
     squares[currentIndex].removeAttribute('data-type')
+    stopGame()
     switch(e.keyCode) {
       case 37:
         if(currentIndex % width !== 0) currentIndex -= 1
@@ -33,167 +40,181 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentIndex + width < width * width) currentIndex += width
         break
     }
-    squares[currentIndex].classList.add('scout')
-    squares[currentIndex].setAttribute('data-type', typeOfGirl)
-    stopGame()
-    if (squares[currentIndex].classList.contains('scout') && squares[currentIndex].classList.contains('tents') && +squares[currentIndex].getAttribute('data-tent') === typeOfGirl) {
+    squares[currentIndex].classList.add('woman')
+    squares[currentIndex].setAttribute('data-type', typeOfJob)
+    if (squares[currentIndex].classList.contains('woman') && squares[currentIndex].classList.contains('workPlace') && +squares[currentIndex].getAttribute('data-workPlace') === typeOfJob) {
       currentIndex = 76
-      typeOfGirl++
-      squares[currentIndex].classList.add('scout')
-      squares[currentIndex].setAttribute('data-type', typeOfGirl)
+      typeOfJob++
+      squares[currentIndex].classList.add('woman')
+      squares[currentIndex].setAttribute('data-type', typeOfJob)
     }
-    if (squares[1].classList.contains('scout') && squares[3].classList.contains('scout') && squares[5].classList.contains('scout') && squares[7].classList.contains('scout')) {
-      alert('You won! Want to try again?')
+    if (squares[1].classList.contains('woman') && squares[3].classList.contains('woman') && squares[5].classList.contains('woman') && squares[7].classList.contains('woman')) {
+      popUp.innerHTML = 'You won! Want to try again? <span id="button"> ...Play again</span>'
+      popUp.style.display = 'flex'
+      popUp.addEventListener('click', () => {
+        popUp.style.display = 'none'
+        typeOfJob = 0
+        timeLeft.textContent = 120
+        currentTime = timeLeft.textContent
+        timer = setInterval(countdown, 1000)
+        squares[1].classList.remove('woman')
+        squares[3].classList.remove('woman')
+        squares[5].classList.remove('woman')
+        squares[7].classList.remove('woman')
+      })
+      stopGame()
     }
   }
 
-  function moveRightWoods(rightWood) {
+  function moveRightBuses(rightBus) {
     stopGame()
     switch (true) {
-      case rightWood.classList.contains('wm-one'):
-        rightWood.classList.remove('safecross')
-        rightWood.classList.remove('wm-one')
-        rightWood.classList.add('wm-five')
+      case rightBus.classList.contains('bm-one'):
+        rightBus.classList.remove('safecross')
+        rightBus.classList.remove('bm-one')
+        rightBus.classList.add('bm-five')
         break
-      case rightWood.classList.contains('wm-two'):
-        rightWood.classList.remove('wm-two')
-        rightWood.classList.add('wm-one')
+      case rightBus.classList.contains('bm-two'):
+        rightBus.classList.remove('bm-two')
+        rightBus.classList.add('bm-one')
         break
-      case rightWood.classList.contains('wm-three'):
-        rightWood.classList.remove('wm-three')
-        rightWood.classList.add('wm-two')
+      case rightBus.classList.contains('bm-three'):
+        rightBus.classList.remove('bm-three')
+        rightBus.classList.add('bm-two')
         break
-      case rightWood.classList.contains('wm-four'):
-        rightWood.classList.add('safecross')
-        rightWood.classList.remove('wm-four')
-        rightWood.classList.add('wm-three')
+      case rightBus.classList.contains('bm-four'):
+        rightBus.classList.add('safecross')
+        rightBus.classList.remove('bm-four')
+        rightBus.classList.add('bm-three')
         break
-      case rightWood.classList.contains('wm-five'):
-        rightWood.classList.remove('wm-five')
-        rightWood.classList.add('wm-four')
+      case rightBus.classList.contains('bm-five'):
+        rightBus.classList.remove('bm-five')
+        rightBus.classList.add('bm-four')
         break
     }
   }
 
-  function moveLeftWoods(leftWood) {
+  function moveLeftBuses(leftBus) {
     stopGame()
     switch (true) {
-      case leftWood.classList.contains('wm-one'):
-        leftWood.classList.remove('wm-one')
-        leftWood.classList.add('wm-two')
+      case leftBus.classList.contains('bm-one'):
+        leftBus.classList.remove('bm-one')
+        leftBus.classList.add('bm-two')
         break
-      case leftWood.classList.contains('wm-two'):
-        leftWood.classList.remove('wm-two')
-        leftWood.classList.add('wm-three')
+      case leftBus.classList.contains('bm-two'):
+        leftBus.classList.remove('bm-two')
+        leftBus.classList.add('bm-three')
         break
-      case leftWood.classList.contains('wm-three'):
-        leftWood.classList.remove('safecross')
-        leftWood.classList.remove('wm-three')
-        leftWood.classList.add('wm-four')
+      case leftBus.classList.contains('bm-three'):
+        leftBus.classList.remove('safecross')
+        leftBus.classList.remove('bm-three')
+        leftBus.classList.add('bm-four')
         break
-      case leftWood.classList.contains('wm-four'):
-        leftWood.classList.remove('wm-four')
-        leftWood.classList.add('wm-five')
+      case leftBus.classList.contains('bm-four'):
+        leftBus.classList.remove('bm-four')
+        leftBus.classList.add('bm-five')
         break
-      case leftWood.classList.contains('wm-five'):
-        leftWood.classList.add('safecross')
-        leftWood.classList.remove('wm-five')
-        leftWood.classList.add('wm-one')
+      case leftBus.classList.contains('bm-five'):
+        leftBus.classList.add('safecross')
+        leftBus.classList.remove('bm-five')
+        leftBus.classList.add('bm-one')
         break
     }
 
   }
 
-  function moveHedgehogsInTime() {
-    rightHedgehogs.forEach(rightHedgehog => moverightHedgehogs(rightHedgehog))
-    leftHedgehogs.forEach(leftHedgehog => moveleftHedgehogs(leftHedgehog))
+  function moveCarsInTime() {
+    rightCars.forEach(rightCar => moverightCars(rightCar))
+    leftCars.forEach(leftCar => moveleftCars(leftCar))
   }
 
-  function moverightHedgehogs(rightHedgehog) {
+  function moverightCars(rightCar) {
     stopGame()
     switch (true) {
-      case rightHedgehog.classList.contains('fm-one'):
-        rightHedgehog.classList.remove('safecross')
-        rightHedgehog.classList.remove('fm-one')
-        rightHedgehog.classList.add('fm-three')
+      case rightCar.classList.contains('cm-one'):
+        rightCar.classList.remove('safecross')
+        rightCar.classList.remove('cm-one')
+        rightCar.classList.add('cm-three')
         break
-      case rightHedgehog.classList.contains('fm-two'):
-        rightHedgehog.classList.remove('fm-two')
-        rightHedgehog.classList.add('fm-one')
+      case rightCar.classList.contains('cm-two'):
+        rightCar.classList.remove('cm-two')
+        rightCar.classList.add('cm-one')
         break
-      case rightHedgehog.classList.contains('fm-three'):
-        rightHedgehog.classList.add('safecross')
-        rightHedgehog.classList.remove('fm-three')
-        rightHedgehog.classList.add('fm-two')
+      case rightCar.classList.contains('cm-three'):
+        rightCar.classList.add('safecross')
+        rightCar.classList.remove('cm-three')
+        rightCar.classList.add('cm-two')
         break
     }
   }
 
-  function moveleftHedgehogs(leftHedgehog) {
+  function moveleftCars(leftCar) {
     stopGame()
     switch (true) {
-      case leftHedgehog.classList.contains('fm-one'):
-        leftHedgehog.classList.add('safecross')
-        leftHedgehog.classList.remove('fm-one')
-        leftHedgehog.classList.add('fm-two')
+      case leftCar.classList.contains('cm-one'):
+        leftCar.classList.add('safecross')
+        leftCar.classList.remove('cm-one')
+        leftCar.classList.add('cm-two')
         break
-      case leftHedgehog.classList.contains('fm-two'):
-        leftHedgehog.classList.remove('fm-two')
-        leftHedgehog.classList.add('fm-three')
+      case leftCar.classList.contains('cm-two'):
+        leftCar.classList.remove('cm-two')
+        leftCar.classList.add('cm-three')
         break
-      case leftHedgehog.classList.contains('fm-three'):
-        leftHedgehog.classList.remove('safecross')
-        leftHedgehog.classList.remove('fm-three')
-        leftHedgehog.classList.add('fm-one')
+      case leftCar.classList.contains('cm-three'):
+        leftCar.classList.remove('safecross')
+        leftCar.classList.remove('cm-three')
+        leftCar.classList.add('cm-one')
         break
     }
   }
 
-  function moveWoodsInTime() {
-    leftWoods.forEach(leftWood => moveLeftWoods(leftWood))
-    rightWoods.forEach(rightWood => moveRightWoods(rightWood))
+  function moveBusesInTime() {
+    leftBuses.forEach(leftBus => moveLeftBuses(leftBus))
+    rightBuses.forEach(rightBus => moveRightBuses(rightBus))
     if (currentIndex >= 27 && currentIndex < 35) {
-      squares[currentIndex].classList.remove('scout')
+      squares[currentIndex].classList.remove('woman')
       squares[currentIndex].removeAttribute('data-type')
       currentIndex = currentIndex +1
-      squares[currentIndex].classList.add('scout')
-      squares[currentIndex].setAttribute('data-type', typeOfGirl)
+      squares[currentIndex].classList.add('woman')
+      squares[currentIndex].setAttribute('data-type', typeOfJob)
     }
     if (currentIndex > 18 && currentIndex <= 26) {
-      squares[currentIndex].classList.remove('scout')
+      squares[currentIndex].classList.remove('woman')
       squares[currentIndex].removeAttribute('data-type')
       currentIndex = currentIndex -1
-      squares[currentIndex].classList.add('scout')
-      squares[currentIndex].setAttribute('data-type', typeOfGirl)
+      squares[currentIndex].classList.add('woman')
+      squares[currentIndex].setAttribute('data-type', typeOfJob)
     }
   }
 
 
   function stopGame(){
-    if (squares[currentIndex].classList.contains('scout') && !squares[currentIndex].classList.contains('safecross')) {
+    if (squares[currentIndex].classList.contains('woman') && !squares[currentIndex].classList.contains('safecross')) {
       clearInterval(timer)
-      alert('you lost, try again!')
-      squares[currentIndex].classList.remove('scout')
+      popUp.innerHTML = 'You lost. Do you want to try again? <span id="button"> ...Play again</span>'
+      popUp.style.display = 'flex'
+      squares[currentIndex].classList.remove('woman')
       squares[currentIndex].removeAttribute('data-type')
-      squares[currentIndex].removeAttribute('data-type')
-      squares[1].classList.remove('scout')
-      squares[3].classList.remove('scout')
-      squares[5].classList.remove('scout')
-      squares[7].classList.remove('scout')
+      squares[1].classList.remove('woman')
+      squares[3].classList.remove('woman')
+      squares[5].classList.remove('woman')
+      squares[7].classList.remove('woman')
       currentIndex = 76
-      squares[currentIndex].classList.add('scout')
-      squares[currentIndex].setAttribute('data-type', typeOfGirl)
-      timeLeft.textContent = 120
-      currentTime = timeLeft.textContent
-      timer = setInterval(countdown, 1000)
+      squares[currentIndex].classList.add('woman')
+      squares[currentIndex].setAttribute('data-type', 0)
+      popUp.addEventListener('click', () => {
+        popUp.style.display = 'none'
+        typeOfJob = 0
+        timeLeft.textContent = 120
+        currentTime = timeLeft.textContent
+        timer = setInterval(countdown, 1000)
+      })
     }
   }
-
   // --- Intervals
-  const hedgehogTimerId = setInterval(moveHedgehogsInTime, 750)
+  const carsTimerId = setInterval(moveCarsInTime, 550)
 
-  const woodsTimerId = setInterval(moveWoodsInTime, 750)
-
+  const busesTimerId = setInterval(moveBusesInTime, 550)
 
   // --- Time remaining
 
