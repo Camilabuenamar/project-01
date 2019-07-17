@@ -189,8 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   function stopGame(){
-    if (squares[currentIndex].classList.contains('woman') && !squares[currentIndex].classList.contains('safecross')) {
-      clearInterval(timer)
+    if (squares[currentIndex].classList.contains('woman') && !squares[currentIndex].classList.contains('safecross') || currentTime === 0) {
+      // clearInterval(timer)
       popUp.innerHTML = 'You lost. Do you want to try again? <span id="button"> ...Play again</span>'
       popUp.style.display = 'flex'
       squares[currentIndex].classList.remove('woman')
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         typeOfJob = 0
         timeLeft.textContent = 120
         currentTime = timeLeft.textContent
-        timer = setInterval(countdown, 1000)
+        // timer = setInterval(countdown, 1000)
       })
     }
   }
@@ -225,8 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
     timeLeft.textContent = currentTime
 
     if(currentTime === 0) {
-      clearInterval(timer)
       stopGame()
+      // clearInterval(timer)
     }
   }
 

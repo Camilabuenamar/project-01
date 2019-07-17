@@ -6,7 +6,7 @@
 body {
   margin: 0;
   font-size: 24px;
-  background-color: #fafafa;
+  background-color: #ECECEC;
 }
 
 header {
@@ -71,10 +71,11 @@ h3 {
 
 .game {
   width: 600px;
-  height: 600px;
+  height: 710px;
   margin: auto;
   padding-bottom: 2px;
   border: 1px solid #fafafa;
+  background-color: #fafafa;
   padding: 10px;
 }
 
@@ -83,9 +84,14 @@ h3 {
   height: 558px;
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
   justify-content: center;
   align-items: center;
   background-color: #ffd1e3;
+  background-image: url("stem-imgs/grid.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .grid div {
@@ -224,6 +230,13 @@ h3 {
   background-size: contain;
 }
 
+.house {
+  background-image: url("stem-imgs/house.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .workPlace[data-workPlace="0"]{
   background-image: url("stem-imgs/rocket.png") !important;
 }
@@ -241,7 +254,7 @@ h3 {
   background-image: url("stem-imgs/hospital.png") !important;
 }
 
-.woman[data-type="0"].bm-one::before, .woman[data-type="0"].bm-two::before, .woman[data-type="0"].bm-three::before, .woman[data-type="0"].workPlace::before {
+.woman[data-type="0"].house::before, .woman[data-type="0"].bm-one::before, .woman[data-type="0"].bm-two::before, .woman[data-type="0"].bm-three::before, .woman[data-type="0"].workPlace::before {
   content: '';
   position: absolute;
   top: 0;
@@ -253,7 +266,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.woman[data-type="1"].bm-one::before, .woman[data-type="1"].bm-two::before, .woman[data-type="1"].bm-three::before, .woman[data-type="1"].workPlace::before {
+.woman[data-type="1"].house::before, .woman[data-type="1"].bm-one::before, .woman[data-type="1"].bm-two::before, .woman[data-type="1"].bm-three::before, .woman[data-type="1"].workPlace::before {
   content: '';
   position: absolute;
   top: 0;
@@ -265,7 +278,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.woman[data-type="2"].bm-one::before, .woman[data-type="2"].bm-two::before, .woman[data-type="2"].bm-three::before, .woman[data-type="2"].workPlace::before {
+.woman[data-type="2"].house::before, .woman[data-type="2"].bm-one::before, .woman[data-type="2"].bm-two::before, .woman[data-type="2"].bm-three::before, .woman[data-type="2"].workPlace::before {
   content: '';
   position: absolute;
   top: 0;
@@ -277,7 +290,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.woman[data-type="3"].bm-one::before, .woman[data-type="3"].bm-two::before, .woman[data-type="3"].bm-three::before, .woman[data-type="3"].workPlace::before {
+.woman[data-type="3"].house::before, .woman[data-type="3"].bm-one::before, .woman[data-type="3"].bm-two::before, .woman[data-type="3"].bm-three::before, .woman[data-type="3"].workPlace::before {
   content: '';
   position: absolute;
   top: 0;
