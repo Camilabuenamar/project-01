@@ -1,10 +1,12 @@
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 body {
   margin: 0;
   font-size: 24px;
+  background-color: #ECECEC;
 }
 
 header {
@@ -13,80 +15,343 @@ header {
   padding: 10px 0;
 }
 
+h1 {
+  display: flex;
+  font-size: 70px;
+  color: deeppink;
+  justify-content: center;
+  font-family: 'Amatic SC', cursive;
+}
+
+h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  font-size: 30px;
+  color: #454545;
+  justify-content: right;
+  font-family: 'Amatic SC', cursive;
+  padding-left: 350px;
+}
+
+#time {
+  color: black;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.popUp {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  z-index: 300;
+  background-color: rgba(250, 250, 250, 0.9);
+  top: 45%;
+  left: 40%;
+  font-size: 45px;
+  color: deeppink;
+  justify-content: center;
+  font-family: 'Amatic SC', cursive;
+  padding: 10px;
+  animation-duration: 200ms;
+  animation-name: bounceIn;
+}
+
+#button{
+  display: flex;
+  flex-direction: row;
+  color: #454545;
+  justify-content: flex-end;
+  font-family: 'Amatic SC', cursive;
+  padding: 10px;
+}
+
 .game {
   width: 600px;
-  height: 600px;
+  height: 710px;
   margin: auto;
-  padding: 50px;
-  border: 1px solid gray;
+  padding-bottom: 2px;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  padding: 10px;
 }
 
 .grid {
-  width: 100%;
-  height: 100%;
+  width: 558px;
+  height: 558px;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid gray;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffd1e3;
+  background-image: url("stem-imgs/grid.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .grid div {
   width: calc(100% / 9);
   height: calc(100% / 9);
-  border: 1px solid gray;
+  position: relative;
+  border-width: 0;
 }
 
 
-.left-frogs {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: orange;
-  /* background-size: contain;
+.left-cars {
+  background-image: url("stem-imgs/car-two.png");
+  transform:scaleX(-1);
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
+  animation-duration: 550ms;
+  animation-name: moveLeft;
+  transition-timing-function: linear;
 }
 
-.right-frogs {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: yellow;
-  /* background-size: contain;
+.right-cars {
+  background-image: url("stem-imgs/car-two.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
+  animation-duration: 550ms;
+  animation-name: moveRight;
+  transition-timing-function: linear;
 }
 
-.left-woods {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: hotpink;
-  /* background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center; */
+.safecross.left-cars, .safecross.right-cars {
+  background-image: none;
 }
 
-.right-woods {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: red;
-  /* background-size: contain;
+
+.safecross.woman {
+  background-image: url("stem-imgs/astronaut.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
-}
-.safecross {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: gray;
-  /* background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
 
-.leafs {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: purple;
-  /* background-size: contain;
+.safecross.woman[data-type="1"] {
+  background-image: url("stem-imgs/scientist.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
 }
 
-.frog {
-  /* background-image: url(https://gallery.kissclipart.com/20180906/psw/kissclipart-whack-a-mole-clip-art-clipart-whac-a-mole-clip-art-c1444edc7b73ee01.jpg); */
-  background-color: green;
-  /* background-size: contain;
+.safecross.woman[data-type="2"] {
+  background-image: url("stem-imgs/engineer.png");
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-size: contain;
+}
+
+.safecross.woman[data-type="3"] {
+  background-image: url("stem-imgs/pilot.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.left-buses{
+  animation-duration: 550ms;
+  animation-name: moveLeft;
+  transition-timing-function: linear;
+}
+.bm-one.left-buses {
+  background-image: url("stem-imgs/bus-front.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-two.left-buses {
+  background-image: url("stem-imgs/bus-center.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-three.left-buses {
+  background-image: url("stem-imgs/bus-back.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-four.left-buses {
+  background-image: url("stem-imgs/car-one.png") !important;
+  transform:scaleX(-1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-five.left-buses {
+  background-image: url("stem-imgs/car-three.png") !important;
+  transform:scaleX(-1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.right-buses{
+  animation-duration: 550ms;
+  animation-name: moveRight;
+  transition-timing-function: linear;
+}
+
+.bm-one.right-buses {
+  background-image: url("stem-imgs/bus-back.png") !important;
+  transform:scaleX(-1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-two.right-buses {
+  background-image: url("stem-imgs/bus-center.png") !important;
+  background-position: center;
+  transform:scaleX(-1);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-three.right-buses {
+  background-image: url("stem-imgs/bus-front.png") !important;
+  transform:scaleX(-1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-four.right-buses {
+  background-image: url("stem-imgs/car-one.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bm-five.right-buses {
+  background-image: url("stem-imgs/car-three.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.workPlace {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+.workPlace[data-workPlace="0"]{
+  background-image: url("stem-imgs/rocket.png") !important;
+}
+
+.workPlace[data-workPlace="1"]{
+  background-image: url("stem-imgs/lab.png") !important;
+}
+
+
+.workPlace[data-workPlace="2"]{
+  background-image: url("stem-imgs/construction.png") !important;
+}
+
+.workPlace[data-workPlace="3"]{
+  background-image: url("stem-imgs/airport.png") !important;
+}
+
+.house {
+  background-image: url("stem-imgs/house.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.woman[data-type="0"].house::before, .woman[data-type="0"].bm-one::before, .woman[data-type="0"].bm-two::before, .woman[data-type="0"].bm-three::before, .woman[data-type="0"].workPlace::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("stem-imgs/astronaut.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.woman[data-type="1"].house::before, .woman[data-type="1"].bm-one::before, .woman[data-type="1"].bm-two::before, .woman[data-type="1"].bm-three::before, .woman[data-type="1"].workPlace::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("stem-imgs/scientist.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.woman[data-type="2"].house::before, .woman[data-type="2"].bm-one::before, .woman[data-type="2"].bm-two::before, .woman[data-type="2"].bm-three::before, .woman[data-type="2"].workPlace::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("stem-imgs/engineer.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.woman[data-type="3"].house::before, .woman[data-type="3"].bm-one::before, .woman[data-type="3"].bm-two::before, .woman[data-type="3"].bm-three::before, .woman[data-type="3"].workPlace::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("stem-imgs/pilot.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  60% {
+    transform: scale(1);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  100% {
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+@keyframes moveLeft {
+  transform: translate(-62px,62px);
+  transition-timing-function: linear;
+  -webkit-transform: translate(-62px,0); /** Safari & Chrome **/
+  -o-transform: translate(-62px,0); /** Opera **/
+  -moz-transform: translate(-62px,0); /** Firefox **/
+}
+
+@keyframes moveRight {
+  transform: translate(62px,-62px);
+  transition-timing-function: linear;
+  -webkit-transform: translate(-62px,0); /** Safari & Chrome **/
+  -o-transform: translate(-62px,0); /** Opera **/
+  -moz-transform: translate(-62px,0); /** Firefox **/
 }
