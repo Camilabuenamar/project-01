@@ -1,15 +1,4 @@
-<!-- Link to your project
-○ Brief
-○ Overview & concept of the project
-○ Technologies used
-○ Approach taken - Thought process & methods of producing it
-○ Snippets of your code and screenshots of your project
-○ Wins and Blockers
-○ Future features
-○ What you have learned (tech & soft skills)
- -->
-
-# **SEI-Project-01: Wonder Women** :woman_astronaut: :woman_scientist: :construction_worker_woman: :woman_pilot:
+# **SEI-Project-01: <span style="color:deeppink">Wonder Women** </span> :woman_astronaut: :woman_scientist: :construction_worker_woman: :woman_pilot:
 
 ## Overview:
 #### Women Women is a game oriented to young girls to encourage them to aspire to careers where female representation is very low. The player has to avoid the cars and take the bus to bring each woman in the game (astronaut, scientist, engineer and pilot) to their respective workplace in less than two minutes.
