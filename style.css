@@ -55,6 +55,8 @@ h3 {
   justify-content: center;
   font-family: 'Amatic SC', cursive;
   padding: 10px;
+  animation-duration: 200ms;
+  animation-name: bounceIn;
 }
 
 #button{
@@ -65,9 +67,6 @@ h3 {
   font-family: 'Amatic SC', cursive;
   padding: 10px;
 }
-
-
-
 
 .game {
   width: 600px;
@@ -108,6 +107,9 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  animation-duration: 550ms;
+  animation-name: moveLeft;
+  transition-timing-function: linear;
 }
 
 .right-cars {
@@ -115,11 +117,15 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  animation-duration: 550ms;
+  animation-name: moveRight;
+  transition-timing-function: linear;
 }
 
 .safecross.left-cars, .safecross.right-cars {
   background-image: none;
 }
+
 
 .safecross.woman {
   background-image: url("stem-imgs/astronaut.png");
@@ -149,6 +155,11 @@ h3 {
   background-size: contain;
 }
 
+.left-buses{
+  animation-duration: 550ms;
+  animation-name: moveLeft;
+  transition-timing-function: linear;
+}
 .bm-one.left-buses {
   background-image: url("stem-imgs/bus-front.png") !important;
   background-position: center;
@@ -184,6 +195,12 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.right-buses{
+  animation-duration: 550ms;
+  animation-name: moveRight;
+  transition-timing-function: linear;
 }
 
 .bm-one.right-buses {
@@ -230,12 +247,6 @@ h3 {
   background-size: contain;
 }
 
-.house {
-  background-image: url("stem-imgs/house.png") !important;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 
 .workPlace[data-workPlace="0"]{
   background-image: url("stem-imgs/rocket.png") !important;
@@ -252,6 +263,13 @@ h3 {
 
 .workPlace[data-workPlace="3"]{
   background-image: url("stem-imgs/hospital.png") !important;
+}
+
+.house {
+  background-image: url("stem-imgs/house.png") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .woman[data-type="0"].house::before, .woman[data-type="0"].bm-one::before, .woman[data-type="0"].bm-two::before, .woman[data-type="0"].bm-three::before, .woman[data-type="0"].workPlace::before {
@@ -301,4 +319,39 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  60% {
+    transform: scale(1);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  100% {
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+@keyframes moveLeft {
+  transform: translate(-62px,62px);
+  transition-timing-function: linear;
+  -webkit-transform: translate(-62px,0); /** Safari & Chrome **/
+  -o-transform: translate(-62px,0); /** Opera **/
+  -moz-transform: translate(-62px,0); /** Firefox **/
+}
+
+@keyframes moveRight {
+  transform: translate(62px,-62px);
+  transition-timing-function: linear;
+  -webkit-transform: translate(-62px,0); /** Safari & Chrome **/
+  -o-transform: translate(-62px,0); /** Opera **/
+  -moz-transform: translate(-62px,0); /** Firefox **/
 }
