@@ -5,7 +5,7 @@
 #### This is my first project at General Assembly Software Engineer Immersive. It is an individual one week project where I could make my first proper game, including concepts such as arrays, functions and objects.
 
 [Here you can play the game!](http://camilabuenamar.github.io/project-01)
-![Game gif](https://gph.is/g/ZYAyn3D)
+![Game gif](https://media.giphy.com/media/dX34m8xkCLC0H2aL3u/giphy.gif)
 
 ## Brief:
 - Game based in a grid
@@ -38,7 +38,7 @@
   - Made it visually better with CSS.
 - Created the logic: Each div had a different behaviour, so it was important to understand it.
   - All the grid was the array where the woman could move. For her to move it was necessary to use the KeyCode of each arrow and determine how the index of the woman was going to be modify depending on the key pressed and the width of the grid. This was build with an event listener and a switch function
-  ```
+  ```javascript
   function moveWoman(e) {
     squares[currentIndex].classList.remove('woman')
     squares[currentIndex].removeAttribute('data-type')
@@ -65,7 +65,7 @@
   ```
   - Each square where a car could pass (right or left) had 3 possible stages, two empty and one with the car. It was necessary that the cars could iterate between these stages in different moments of time, with an Interval and a switch function. Also each square in the array of the cars should have a different starting point.
   Here you can see how cars move to the left:
-  ```
+  ```javascript
   function moveleftCars(leftCar) {
     stopGame()
     switch (true) {
@@ -85,11 +85,11 @@
       break
     }
   }
-  ```  
+  ```
   cm-number = the positions of the car movement in time
   - The behaviour of the buses was similar to the one of the cars. The difference is that the buses had 5 different possible stages and that the bus had different positions because it occupies 3 squares on the grid (front, center or back part of the bus). This was also made with a switch function.
   Here you can see how the movement of the buses going to the right was settled:
-  ```
+  ```javascript
   function moveRightBuses(rightBus) {
     switch (true) {
       case rightBus.classList.contains('bm-one'):
@@ -121,7 +121,7 @@
   bm-number = the positions of the bus movement in time
   -  To limit the movement of the woman along the grid so she could win or lose it was necessary to create a category called safecross where she could move. It includes the empty squares, the ones in the cars section that didnt had the cars showing at the same time and the squares with buses.
   - To win it was necessary that the woman arrived to the specific square that matched her data type. In that moment in an specific square called house, a new woman with a new data type appeared. When all the workplaces where occupied by them the player win.
-  ```
+  ```javascript
   function womanGetsToWorkplace() {
     if (squares[currentIndex].classList.contains('woman') && squares[currentIndex].classList.contains('workPlace') && +squares[currentIndex].getAttribute('data-workPlace') === typeOfJob) {
       currentIndex = 76
@@ -143,7 +143,7 @@
   data-type = is the code of each woman that matches the one of the workplace.
   squares[1], squares[3], squares[5] and squares[7] = are the squares in the grid with a workplace.
   - To make the woman move along in the direction of the buses with the same interval used to move the buses a condition was created, if a woman was in the range of the buses moving and in a safecross square the woman would increase or decrease the index in order to follow the same direction.
-  ```
+  ```javascript
   function womanInRightBus() {
     if (currentIndex > 18 && currentIndex <= 26) {
       squares[currentIndex].classList.remove('woman')
