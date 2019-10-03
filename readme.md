@@ -7,6 +7,7 @@ Women Women is a game oriented to young girls to encourage them to aspire to car
 This is my first project at General Assembly Software Engineer Immersive. It is an individual one week project where I could make my first proper game, including concepts such as arrays, functions and objects.
 
 [Here you can play the game!](http://camilabuenamar.github.io/project-01)
+
 ![Game gif](https://media.giphy.com/media/dX34m8xkCLC0H2aL3u/giphy.gif)
 
 ## Overview:
