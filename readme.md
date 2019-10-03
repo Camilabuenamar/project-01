@@ -1,13 +1,15 @@
 # **SEI-Project-01: <span style="color:deeppink">Wonder Women** </span> :woman_astronaut: :woman_scientist: :construction_worker_woman: :woman_pilot:
 
-## Overview:
+### A vanilla JavaScript grid base game inspired in frogger to encourage young girls to study STEM careers.
+
+## Brief:
 Women Women is a game oriented to young girls to encourage them to aspire to careers where female representation is very low. The player has to avoid the cars and take the bus to bring each woman in the game (astronaut, scientist, engineer and pilot) to their respective workplace in less than two minutes.
 This is my first project at General Assembly Software Engineer Immersive. It is an individual one week project where I could make my first proper game, including concepts such as arrays, functions and objects.
 
 [Here you can play the game!](http://camilabuenamar.github.io/project-01)
 ![Game gif](https://media.giphy.com/media/dX34m8xkCLC0H2aL3u/giphy.gif)
 
-## Brief:
+## Overview:
 - Game based in a grid
 - Has timers to modify the squares.
 - Used arrays to modify behaviour of certain squares.
